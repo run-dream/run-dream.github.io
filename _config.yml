@@ -1,7 +1,7 @@
 # Site settings
 title: Run-dream Blog
 SEOTitle: Run-dream的博客 | Run-dream Blog
-header-img: img/home-bgjpg
+header-img: img/home-bg.jpg
 email: ruan4dream@gmail.com
 description: "Web developer"
 keyword: "Run-dream,Run-dream  Blog"
@@ -76,6 +76,6 @@ service-worker: true
 friends: [
     {
         title: "run-dream",
-        href: "https://home.cnblogs.com/u/Run-dream/"
+        href: "https://www.cnblogs.com/Run-dream/"
     }
 ]
