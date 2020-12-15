@@ -19,5 +19,5 @@ tags:
 3. 安装VSCode插件
    简单来说直接使用[Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
    它是微软官方集成的若干个插件的集合
-   ![Java Extension Pack](https://run-dream.github.io/img/post/vscode-java-pack.png)
+   ![Java Extension Pack](https://run-dream.github.io/img/post/vscode-java-pack.jpg)
 4. 愉快的修改代码
