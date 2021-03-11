@@ -60,25 +60,25 @@ npm install -D typescript
 
 ts-node 是通过源代码映射来执行ts代码，并提供了REPL环境
 
-- 安装
+1. 安装
 
-  ```
-  npm install -g ts-node
-  ```
+   ```
+   npm install -g ts-node
+   ```
 
-- 使用
+2. 使用
 
-  REPL
+   REPL
 
-  ```bash
-  ts-node
-  ```
+   ```bash
+   ts-node
+   ```
 
-  运行ts文件
+	运行ts文件
 
-  ```bash
-  ts-node index.ts
-  ```
+   ```bash
+   ts-node index.ts
+   ```
 
 ### 四. 代码检查 Eslint
 
