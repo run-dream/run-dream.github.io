@@ -31,17 +31,16 @@ tags:
 
 ### 操作细节
 1. 可以通过以下语句来获取缓存了的且缺少索引的查询的执行计划
-``` sql
-select top 100 
-    last_execution_time, execution_count, statement_start_offset, p.query_plan, q.text
-from sys.dm_exec_query_stats
-    cross apply sys.dm_exec_query_plan(plan_handle) p
-    cross apply sys.dm_exec_sql_text(plan_handle) as q
-where last_execution_time > '2019-06-13' and cast(query_plan as nvarchar(max)) like '%Missing Index%'
-order by (total_logical_reads + total_logical_writes)/execution_count Desc
 
-```
-
+   ```sql
+   select top 100 
+       last_execution_time, execution_count, statement_start_offset, p.query_plan, q.text
+   from sys.dm_exec_query_stats
+       cross apply sys.dm_exec_query_plan(plan_handle) p
+       cross apply sys.dm_exec_sql_text(plan_handle) as q
+   where last_execution_time > '2019-06-13' and cast(query_plan as nvarchar(max)) like '%Missing Index%'
+   order by (total_logical_reads + total_logical_writes)/execution_count Desc
+   ```
 2. 直接点开query_plan，SqlServer有推荐如何建立索引
 
 ### 总结
