@@ -37,23 +37,26 @@ function sum(array, rule) {
 ### 修复
 
 ```diff
+--- f1 2021-06-04 16:45:41.000000000 +0800
++++ f2 2021-06-04 16:45:51.000000000 +0800
+@@ -1,14 +1,15 @@ 
 /**
  * @description 遍历数组，求总和
  * @param {*[]} array
  * @param {Function|string} rule
  * @return
  */
-function sum(array, rule) {
-    if (typeof rule === "string") {
+ function sum(array, rule) {
+     if (typeof rule === "string") {
 - 		rule = (item) => item[rule];
 +       const field = rule;
 +       rule = item => item[field];
-    }
-    return array.reduce((result, item) => {
-        return result + Number(rule(item) || 0);
-    }, 0);
-}
-
+     }
+     return array.reduce((result, item) => {
+         return result + Number(rule(item) || 0);
+     }, 0);
+ }
+ 
 ```
 
 ### 原因
