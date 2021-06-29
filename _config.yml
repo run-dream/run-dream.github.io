@@ -56,7 +56,7 @@ kramdown:
 # utteranc 
 utteranc:
   enable: true    #是否开启评论
-  repo: run-dream.github.io    #仓库名称
+  repo: run-dream/run-dream.github.io    #仓库名称
 
 
 # Featured Tags
