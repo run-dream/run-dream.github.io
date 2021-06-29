@@ -53,11 +53,15 @@ kramdown:
 # 评论系统
 # Disqus（https://disqus.com/）
 # disqus_username: qiubaiying
-
-
-
-# 统计
-
+# Gitalk
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: c8d95c54b5c293806478                            #生成的clientID
+  clientSecret: 2e2f52c3efe2b8bc0adb2b0d75c981b098671e3a    #生成的clientSecret
+  repo: run-dream.github.io    #仓库名称
+  owner: run-dream    #github用户名
+  admin: run-dream
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
 # Featured Tags
