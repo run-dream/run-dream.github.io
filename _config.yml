@@ -5,39 +5,31 @@ header-img: img/home-bg.jpg
 email: ruan4dream@gmail.com
 description: "Web developer"
 keyword: "Run-dream,Run-dream  Blog"
-url: "http://run-dream.github.io" 
-baseurl: ""      
+url: "http://run-dream.github.io"
+baseurl: ""
 github_repo: "https://github.com/run-dream/run-dream.github.io.git"
 
 # Sidebar settings
-sidebar: true                           # whether or not using Sidebar.
+sidebar: true # whether or not using Sidebar.
 sidebar-about-description: "まだ人生長いでしょ"
-sidebar-avatar: /img/avator.png      # use absolute URL, seeing it's used in both `/` and `/about/`
-
-
+sidebar-avatar: /img/avator.png # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # SNS settings
 RSS: false
-weibo_username:     君何不醉
-github_username:    run-dream
-#jianshu_username:   
-
+weibo_username: 君何不醉
+github_username: run-dream
+#jianshu_username:
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 permalink: pretty
 paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
-
-
+exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
+anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
 
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
 gems: [jekyll-paginate]
-
-
-
 
 # Markdown settings
 # replace redcarpet to kramdown,
@@ -46,35 +38,25 @@ gems: [jekyll-paginate]
 markdown: kramdown
 highlighter: rouge
 kramdown:
-  input: GFM                            # use Github Flavored Markdown !important
-
-
+  input: GFM # use Github Flavored Markdown !important
 
 # 评论系统
 # Disqus（https://disqus.com/）
 # disqus_username: qiubaiying
-# utteranc 
+# utteranc
 utteranc:
-  enable: true    #是否开启评论
-  repo: run-dream/run-dream.github.io    #仓库名称
-
+  enable: true #是否开启评论
+  repo: run-dream/run-dream.github.io #仓库名称
+  issue-term: title
+  theme: github-light
 
 # Featured Tags
-featured-tags: true                     # 是否使用首页标签
-featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页
-
-
+featured-tags: true # 是否使用首页标签
+featured-condition-size: 1 # 相同标签数量大于这个数，才会出现在首页
 
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
 
-
-
 # Friends
-friends: [
-    {
-        title: "run-dream",
-        href: "https://www.cnblogs.com/Run-dream/"
-    }
-]
+friends: [{ title: "run-dream", href: "https://www.cnblogs.com/Run-dream/" }]
