@@ -130,17 +130,9 @@ layout: default
                 <!-- disqus 评论框 end -->
                 {% endif %}
 
-                <!-- Utterances 评论 start  -->
-                {% if site.utteranc.enable %}
-                <!-- Utterances link  -->
-                <script src="https://utteranc.es/client.js" repo="{{site.utteranc.repo}}" issue-term="pathname"
-                    theme="github-light" crossorigin="anonymous" async>
-                    </script>
-
-                <div class="utterances"></div>
-                {% endif %}
-                <!-- Utterances end -->
-
+                <!-- utteranc 评论框 start -->
+                {% include utterance.html %}
+                <!-- utteranc 评论框 end -->
             </div>
 
             <!-- Side Catalog Container -->
