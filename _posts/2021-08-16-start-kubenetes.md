@@ -1,8 +1,8 @@
 ---
 layout: post
 date:       2021-08-10 20:00:00
-category: kubenetes 入门
-title: 
+category: kubenetes
+title: kubenetes 入门
 tags:
     - kubenetes
 ---
