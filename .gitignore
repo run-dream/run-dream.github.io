@@ -36,3 +36,4 @@ _site
 
 # vscode
 .vscodep
+node_modules
