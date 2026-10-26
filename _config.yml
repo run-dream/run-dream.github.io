@@ -60,3 +60,9 @@ service-worker: true
 
 # Friends
 friends: [{ title: "run-dream", href: "https://www.cnblogs.com/Run-dream/" }]
+
+# AI通鉴独立专栏
+collections:
+  ai_tongjian:
+    output: true
+    permalink: /ai-tongjian/:name/
