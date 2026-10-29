@@ -37,3 +37,7 @@ _site
 # vscode
 .vscodep
 node_modules
+
+# deploy.sh 产物
+.build/
+dist/
