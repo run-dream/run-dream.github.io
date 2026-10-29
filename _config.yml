@@ -9,6 +9,9 @@ url: "http://run-dream.github.io"
 baseurl: ""
 github_repo: "https://github.com/run-dream/run-dream.github.io.git"
 
+# ICP 备案：备案号必须在站点页脚展示并链接 beian.miit.gov.cn（模板读 site.icp）
+icp: "湘ICP备2026050341号"
+
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
 sidebar-about-description: "まだ人生長いでしょ"
