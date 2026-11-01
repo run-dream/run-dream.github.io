@@ -89,11 +89,37 @@ build() {
   cat > "$OVERRIDE" <<EOF
 url: "$SITE_URL"
 baseurl: ""
-exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md", "specs", "vendor", "deploy.sh"]
+exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md", "specs", "vendor", "deploy.sh", "setup-gems.sh"]
+collections:
+  ai_tongjian:
+    output: true
+    permalink: /ai-story/:name/
 EOF
 
   ( cd "$STAGE" && "$JEKYLL" build --config "_config.yml,$OVERRIDE" --destination "$DIST" >/dev/null )
+
+  relocate_ai_story
+
   echo "构建完成：发布 ${kept} 篇，剔除 ${dropped} 篇 -> ${DIST}（${SITE_URL}）"
+}
+
+# AI通鉴 专栏：GitHub Pages 上仍是 /ai-tongjian/，境内站点挂到 /ai-story/
+relocate_ai_story() {
+  local landing=""
+  if [[ -f "$DIST/ai-tongjian/index.html" ]]; then
+    landing="$DIST/ai-tongjian/index.html"
+  elif [[ -f "$DIST/ai-tongjian.html" ]]; then
+    landing="$DIST/ai-tongjian.html"
+  else
+    return 0
+  fi
+  mkdir -p "$DIST/ai-story"
+  mv "$landing" "$DIST/ai-story/index.html"
+  rm -rf "$DIST/ai-tongjian" "$DIST/ai-tongjian.html"
+  local f
+  while IFS= read -r f; do
+    sed -i '' -E 's#/ai-tongjian\.html#/ai-story/#g; s#/ai-tongjian/#/ai-story/#g' "$f"
+  done < <(find "$DIST" -type f \( -name '*.html' -o -name '*.xml' \))
 }
 
 deploy() {
