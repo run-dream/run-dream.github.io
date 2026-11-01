@@ -86,40 +86,29 @@ build() {
 
   scan_internal
 
+  # 国内站点不发布 AI通鉴 专栏：内容是每日新闻汇编 + 境外媒体转述，
+  # 且未做 AI 生成标识，合规评估没通过。GitHub Pages 侧照常发布。
+  rm -rf "$STAGE/_ai_tongjian" "$STAGE/ai-tongjian.html"
+
   cat > "$OVERRIDE" <<EOF
 url: "$SITE_URL"
 baseurl: ""
 exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md", "specs", "vendor", "deploy.sh", "setup-gems.sh"]
-collections:
-  ai_tongjian:
-    output: true
-    permalink: /ai-story/:name/
 EOF
 
   ( cd "$STAGE" && "$JEKYLL" build --config "_config.yml,$OVERRIDE" --destination "$DIST" >/dev/null )
 
-  relocate_ai_story
+  drop_ai_story_nav
 
   echo "构建完成：发布 ${kept} 篇，剔除 ${dropped} 篇 -> ${DIST}（${SITE_URL}）"
 }
 
-# AI通鉴 专栏：GitHub Pages 上仍是 /ai-tongjian/，境内站点挂到 /ai-story/
-relocate_ai_story() {
-  local landing=""
-  if [[ -f "$DIST/ai-tongjian/index.html" ]]; then
-    landing="$DIST/ai-tongjian/index.html"
-  elif [[ -f "$DIST/ai-tongjian.html" ]]; then
-    landing="$DIST/ai-tongjian.html"
-  else
-    return 0
-  fi
-  mkdir -p "$DIST/ai-story"
-  mv "$landing" "$DIST/ai-story/index.html"
-  rm -rf "$DIST/ai-tongjian" "$DIST/ai-tongjian.html"
+# 顶栏里的 AI通鉴 入口（专栏本身已在暂存阶段删掉）
+drop_ai_story_nav() {
   local f
   while IFS= read -r f; do
-    sed -i '' -E 's#/ai-tongjian\.html#/ai-story/#g; s#/ai-tongjian/#/ai-story/#g' "$f"
-  done < <(find "$DIST" -type f \( -name '*.html' -o -name '*.xml' \))
+    perl -0pi -e 's#\s*<li>\s*<a href="[^"]*ai-tongjian/">AI通鉴</a>\s*</li>##g' "$f"
+  done < <(grep -rl 'AI通鉴' "$DIST" --include='*.html' || true)
 }
 
 deploy() {
